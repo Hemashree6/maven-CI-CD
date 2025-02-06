@@ -18,7 +18,7 @@ pipeline {
      }
     stage('deploy') {
        steps {
-        sshagent(['ssh-id']) {
+        sshagent(['ec2-ssh-credentials']) {
       sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven CI-CD/webapp/target/webapp.war ec2-user@3.88.213.212:/home/ec2-user/apache-tomcat-9.0.98/webapps'
      }
       }
