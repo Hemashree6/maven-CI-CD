@@ -19,7 +19,7 @@ pipeline {
     stage('deploy') {
        steps {
         sshagent(['ssh-id']) {
-      sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/pipeline/webapp/target/webapp.war ubuntu@13.60.190.28:/opt/tomcat/webapps'
+      sh 'scp -o StrictHostKeyChecking=no /var/lib/jenkins/workspace/maven CI-CD/webapp/target/webapp.war ec2-user@3.88.213.212:/home/ec2-user/apache-tomcat-9.0.98/webapps'
      }
       }
     }
